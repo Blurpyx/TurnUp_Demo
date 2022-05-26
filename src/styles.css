@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @apply bg-skin-light;
+}
+
+@layer utilities {
+  h1 {
+    @apply text-3xl font-bold pb-6;
+  }
+  h2 {
+    @apply text-xl font-bold pb-3;
+  }
+  h3 {
+    @apply text-lg font-bold pb-3;
+  }
+  .btn {
+    @apply w-fit border-none rounded text-white bg-skin-medium p-2 px-6 transition-all duration-300 ease-in-out cursor-pointer;
+  }
+  .btn:hover {
+    @apply bg-skin-light text-black;
+  }
+  .btn-success {
+    @apply bg-green-500;
+  }
+  .btn-success:hover {
+    @apply bg-green-300 text-black;
+  }
+}

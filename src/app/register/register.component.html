@@ -1,0 +1,161 @@
+<div class="pt-16">
+	<div class="w-full">
+		<h1 class="mx-auto w-min text-3xl font-bold">TurnUp</h1>
+	</div>
+	<div
+		class="bg-white rounded-xl mx-auto w-[30rem] mb-20 md:mb-28 lg:mb-52 {{
+			step == 3 ? '' : 'md:w-[35rem] lg:w-[60rem] xl:w-[70rem]'
+		}} mt-16 py-6 px-16"
+	>
+		<div class="flex justify-center mb-12">
+			<div class="flex flex-col items-center {{ step == 1 ? '' : 'text-gray-300' }}">
+				<p class="{{ step == 1 ? 'bg-gray-300' : 'bg-gray-200' }} p-2 rounded-full w-10 h-10 text-center">1</p>
+				<p>Bedrijf</p>
+			</div>
+
+			<div class="relative top-5 h-[.2rem] w-16 ml-[.9rem] bg-gray-300"></div>
+
+			<div class="flex flex-col items-center {{ step == 2 ? '' : 'text-gray-300' }} ">
+				<p class="{{ step == 2 ? 'bg-gray-300' : 'bg-gray-200' }} p-2 rounded-full w-10 h-10 text-center">2</p>
+				<p>Gebruiker</p>
+			</div>
+
+			<div class="relative top-5 h-[.2rem] w-16 mr-[.9rem] bg-gray-300"></div>
+
+			<div class="flex flex-col items-center {{ step == 3 ? '' : 'text-gray-300' }} ">
+				<p class="{{ step == 3 ? 'bg-gray-300' : 'bg-gray-200' }} p-2 rounded-full w-10 h-10 text-center">3</p>
+				<p>Login</p>
+			</div>
+		</div>
+		<div class="lg:grid {{ step == 3 ? '' : 'lg:grid-cols-3' }} lg:gap-16">
+			<div class="w-[85%] {{ step == 3 ? 'hidden' : '' }} lg:w-full mx-auto lg:mx-0 mb-10 lg:mb-0">
+				<h1>Heeft u al een account?</h1>
+				<div class="mb-5">
+					<a routerLink="/login" class="btn btn-success w-fit">Log in</a>
+				</div>
+				<h2>Registreren niet mogelijk?</h2>
+				<p>
+					Kan je niet registeren omdat je email adress al een account heeft, klik
+					<a href="" class="text-skin-light">hier</a> om een nieuw paswoord aan te vragen.
+				</p>
+			</div>
+			<form class="{{ step == 3 ? '' : 'col-span-2' }} w-full mx-auto">
+				<div class="{{ step == 1 ? '' : 'hidden' }}">
+					<div class="flex">
+						<p class="bg-gray-300 p-2 rounded-full w-10 h-10 text-center mr-5">1</p>
+						<h1>Bedrijf</h1>
+					</div>
+					<div class="grid grid-cols-2 gap-10 mb-5">
+						<div>
+							<label for="email">E-mail *</label><br />
+							<input type="email" name="email" id="email" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+							<label for="sector">Sector *</label>
+							<select name="sector" id="sector" class="bg-gray-300 p-2 mb-3 rounded w-full">
+								<option value="derma">Dermathologie</option>
+								<option value="neuro">Neurologie</option>
+								<option value="huisdokter">Huisdokter</option>
+							</select>
+							<label for="adres">Adres *</label>
+							<input type="text" name="adres" id="adres" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+						</div>
+						<div>
+							<label for="tel">Telefoonnummer *</label><br />
+							<input type="tel" name="tel" id="tel" class="bg-gray-300 p-1 mb-9 rounded w-full" />
+							<div class="flex justify-between mb-2">
+								<div class="bg-gray-300 h-fit rounded">
+									<input type="checkbox" name="nederlands" id="nederlands" class="ml-2" checked />
+									<label for="nederlands" class="m-2 leading-10">Nederlands</label>
+								</div>
+								<div class="bg-gray-300 h-fit rounded ml-2">
+									<input type="checkbox" name="frans" id="frans" class="ml-2" />
+									<label for="frans" class="m-2 leading-10">Frans</label>
+								</div>
+								<div class="bg-gray-300 h-fit rounded ml-2">
+									<input type="checkbox" name="engels" id="engels" class="ml-2" />
+									<label for="engels" class="m-2 leading-10">Engels</label>
+								</div>
+							</div>
+							<div class="flex">
+								<div class="flex flex-col mr-3">
+									<label for="nummer">Nr *</label>
+									<input type="text" name="nummer" id="nummer" class="w-12 bg-gray-300 p-1 mb-3 rounded" />
+								</div>
+								<div class="flex flex-col mr-3">
+									<label for="postcode">Postcode *</label>
+									<input type="text" name="postcode" id="postcode" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+								</div>
+								<div class="flex flex-col">
+									<label for="land">Land *</label>
+									<input type="text" name="land" id="land" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="text-right">
+						<a class="btn" (click)="stepForward()">Volgende</a>
+					</div>
+				</div>
+				<div class="{{ step == 2 ? '' : 'hidden' }}">
+					<div class="flex">
+						<p class="bg-gray-300 p-2 rounded-full w-10 h-10 text-center mr-5">2</p>
+						<h1>Gebruiker</h1>
+					</div>
+					<div class="grid grid-cols-2 gap-10 mb-5">
+						<div>
+							<label for="voornaam">Voornaam *</label>
+							<input type="text" name="voornaam" id="voornaam" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+							<label for="tel">Telefoonnummer *</label>
+							<input type="tel" name="tel" id="tel" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+							<label for="paswoord">Paswoord *</label>
+							<input type="password" name="pwd" id="pwd" class="bg-gray-300 p-1 mb-5 rounded w-full" />
+							<div class="flex justify-between mb-2">
+								<div class="bg-gray-300 h-fit rounded">
+									<input type="checkbox" name="nederlands" id="nederlands" class="ml-2" checked />
+									<label for="nederlands" class="m-2 leading-10">Nederlands</label>
+								</div>
+								<div class="bg-gray-300 h-fit rounded ml-2">
+									<input type="checkbox" name="frans" id="frans" class="ml-2" />
+									<label for="frans" class="m-2 leading-10">Frans</label>
+								</div>
+								<div class="bg-gray-300 h-fit rounded ml-2">
+									<input type="checkbox" name="engels" id="engels" class="ml-2" />
+									<label for="engels" class="m-2 leading-10">Engels</label>
+								</div>
+							</div>
+						</div>
+						<div>
+							<label for="achternaam">Achternaam *</label>
+							<input type="text" name="achternaam" id="achternaam" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+							<label for="email">Email *</label>
+							<input type="email" name="email" id="email" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+							<label for="rep-pwd">Paswoord herhalen*</label>
+							<input type="password" name="rep-pwd" id="rep-pwd" class="bg-gray-300 p-1 mb-5 rounded w-full" />
+						</div>
+					</div>
+					<div class="flex justify-between">
+						<a class="btn" (click)="stepBack()">Vorige</a>
+						<a class="btn" (click)="stepForward()">Volgende</a>
+					</div>
+				</div>
+				<div class="{{ step == 3 ? '' : 'hidden' }}">
+					<div class="flex">
+						<p class="bg-gray-300 p-2 rounded-full w-10 h-10 text-center mr-5">3</p>
+						<h1>Login</h1>
+					</div>
+					<label for="email">E-mail</label>
+					<input type="email" name="email" id="email" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+					<label for="password">Paswoord</label>
+					<input type="password" name="password" id="password" class="bg-gray-300 p-1 mb-3 rounded w-full" />
+					<div>
+						<input type="checkbox" name="remember" id="remember" class="mr-2" />
+						<label for="remember">Onthoud mij</label>
+					</div>
+					<div class="flex justify-between mt-3">
+						<a class="btn" (click)="stepBack()">Vorige</a>
+						<input type="submit" value="Inloggen" class="btn btn-success" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
